@@ -8864,7 +8864,29 @@ Contoh chaining ini dapat dilihat pada Gambar berikut <br/> <img alt="image.png"
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5dddf4de-331b-4903-bfed-df2fcb25da47">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5dddf4de-331b-4903-bfed-df2fcb25da47">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Tugas-Hashing">Tugas Hashing<a class="anchor-link" href="#Tugas-Hashing">¶</a></h1>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2f0cc6c4-8f61-4e10-8299-9436c8bd4c9a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="1.-Close-Address-(Chaining)--%3E-CRU(cari-diganti-dengan-yang-baru)D(cari-di-delete)">1. Close Address (Chaining)--&gt; CRU(cari diganti dengan yang baru)D(cari di delete)<a class="anchor-link" href="#1.-Close-Address-(Chaining)--%3E-CRU(cari-diganti-dengan-yang-baru)D(cari-di-delete)">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2cb0f3f7-2fcc-4f05-a4ae-68c0ce3bb486">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8872,8 +8894,442 @@ Contoh chaining ini dapat dilihat pada Gambar berikut <br/> <img alt="image.png"
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">createChaining</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">hasing</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">key</span> <span class="o">%</span> <span class="n">size</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">Cari</span><span class="p">(</span><span class="n">Chaining</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">hasing</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="n">Chaining</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">Chaining</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">hasing</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">Chaining</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">index</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">Chaining</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">hasing</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">old</span> <span class="ow">in</span> <span class="n">Chaining</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+        <span class="n">Chaining</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">old</span><span class="p">)</span>
+        <span class="n">Cari</span><span class="p">(</span><span class="n">Chaining</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">Chaining</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">hasing</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">Chaining</span><span class="p">[</span><span class="n">index</span><span class="p">]:</span>
+        <span class="n">Chaining</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=578092b4-cfd1-46f0-b74e-22d9538c4c56">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">createChaining</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+<span class="n">Cari</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="n">Cari</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+<span class="n">Cari</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Awal:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+<span class="n">update</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="c1">#mengganti</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Setelah update:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+<span class="n">delete</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span> <span class="c1">#menghapus</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Setelah delete:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Awal: [[], [], [], [], [], [15, 25, 35], [], [], [], []]
+Setelah update: [[50], [], [], [], [], [15, 35], [], [], [], []]
+Setelah delete: [[50], [], [], [], [], [15], [], [], [], []]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8a805016-d7dc-4289-a114-eb00d232218b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="2.-Open-Address-(Linear-Probbing)---%3E-CRUD">2. Open Address (Linear Probbing) --&gt; CRUD<a class="anchor-link" href="#2.-Open-Address-(Linear-Probbing)---%3E-CRUD">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5dfa8092-4ffe-4f49-aae9-70203ebace6c">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># untuk menghitung isi tabel agar tahu kapan penuh</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hitung_isi</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+    <span class="n">jumlah</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+        <span class="c1"># Menghitung laci yang ada isinya (bukan None dan bukan bekas dihapus)</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">item</span> <span class="o">!=</span> <span class="s2">"DELETED"</span><span class="p">:</span>
+            <span class="n">jumlah</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">jumlah</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_table</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">size</span>
+
+<span class="c1"># Fungsi Hash 1: Biasa (Sisa Bagi / Modulo)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hash_function</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">key</span> <span class="o">%</span> <span class="n">size</span>
+
+<span class="c1"># Fungsi Hash 2: Mid-Square (Sesuai file kamu)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mid_square_hash</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">square</span> <span class="o">=</span> <span class="n">key</span> <span class="o">*</span> <span class="n">key</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
+    <span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">middle</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span>
+
+<span class="c1"># --- CRUD LINEAR PROBING ---</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="c1"># CEK TABEL PENUH: Jika jumlah isi sudah sama dengan ukuran tabel, tolak!</span>
+    <span class="k">if</span> <span class="n">hitung_isi</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">==</span> <span class="n">size</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[EROR] Tabel sudah penuh! Angka </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> tidak bisa masuk."</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Pilih mau pakai rumus hash yang mana</span>
+    <span class="k">if</span> <span class="n">jenis_hash</span> <span class="o">==</span> <span class="s2">"biasa"</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">hash_function</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">mid_square_hash</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="c1"># Selama lacinya masih ada isinya, geser terus ke kanan (+1)</span>
+    <span class="k">while</span> <span class="n">table</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">table</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"DELETED"</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span>
+
+    <span class="n">table</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">jenis_hash</span> <span class="o">==</span> <span class="s2">"biasa"</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">hash_function</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">mid_square_hash</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="n">start</span> <span class="o">=</span> <span class="n">index</span>
+    <span class="k">while</span> <span class="n">table</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">index</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">start</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Diubah jadi "DELETED" agar tidak merusak antrean saat digeser</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"DELETED"</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1f96a6a6-3f07-43b6-89cf-c0e0ecb180cf">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">create_table</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- Memasukkan 10 Data (Sampai Penuh) ---"</span><span class="p">)</span>
+<span class="n">daftar_angka</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">angka</span> <span class="ow">in</span> <span class="n">daftar_angka</span><span class="p">:</span>
+    <span class="n">insert</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">angka</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"biasa"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Isi tabel Awal (Sudah Penuh 10/10):"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Memasukkan Data ke-11 (Jika Penuh) ---"</span><span class="p">)</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"biasa"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Lanjut Update dan Delete ---"</span><span class="p">)</span>
+<span class="n">update</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"biasa"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Setelah update 20 jadi 99:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+
+<span class="n">delete</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"biasa"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Setelah delete angka 10:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Memasukkan Data Baru Setelah Ada yang Dihapus ---"</span><span class="p">)</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"biasa"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Isi tabel Akhir:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>--- Memasukkan 10 Data (Sampai Penuh) ---
+
+Isi tabel Awal (Sudah Penuh 10/10): [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+--- Memasukkan Data ke-11 (Jika Penuh) ---
+[EROR] Tabel sudah penuh! Angka 110 tidak bisa masuk.
+
+--- Lanjut Update dan Delete ---
+Setelah update 20 jadi 99: [10, 99, 30, 40, 50, 60, 70, 80, 90, 100]
+Setelah delete angka 10: ['DELETED', 99, 30, 40, 50, 60, 70, 80, 90, 100]
+
+--- Memasukkan Data Baru Setelah Ada yang Dihapus ---
+Isi tabel Akhir: [110, 99, 30, 40, 50, 60, 70, 80, 90, 100]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=792eedba-aaf7-42ac-a677-433d330fb327">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="2.-Open-Address-(Quadratic-Probing)---%3E-CRUD">2. Open Address (Quadratic Probing) --&gt; CRUD<a class="anchor-link" href="#2.-Open-Address-(Quadratic-Probing)---%3E-CRUD">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cf23f403-8553-4302-adf5-ba8ed6ad4434">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># (Fungsi hitung_isi, create_table, hash_function, dan mid_square_hash</span>
+<span class="c1"># tidak perlu ditulis ulang jika sudah dijalankan di cell atasnya)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="c1"># CEK TABEL PENUH</span>
+    <span class="k">if</span> <span class="n">hitung_isi</span><span class="p">(</span><span class="n">table</span><span class="p">)</span> <span class="o">==</span> <span class="n">size</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[EROR] Tabel sudah penuh! Angka </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> tidak bisa masuk."</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="k">if</span> <span class="n">jenis_hash</span> <span class="o">==</span> <span class="s2">"biasa"</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">hash_function</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">mid_square_hash</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># Selama laci penuh, lompat sejauh i pangkat 2 (i*i)</span>
+    <span class="k">while</span> <span class="n">table</span><span class="p">[(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">table</span><span class="p">[(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">"DELETED"</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span><span class="p">:</span> <span class="c1"># Mencegah muter-muter error</span>
+            <span class="k">break</span>
+
+    <span class="n">table</span><span class="p">[(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">jenis_hash</span> <span class="o">==</span> <span class="s2">"biasa"</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">hash_function</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">mid_square_hash</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">table</span><span class="p">[(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">table</span><span class="p">[(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span><span class="p">]</span> <span class="o">==</span> <span class="n">key</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">size</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">old</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">new</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="o">=</span><span class="s2">"biasa"</span><span class="p">):</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">search</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">jenis_hash</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">table</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"DELETED"</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=53bad824-27ea-44e3-a58f-6a40af39c06a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">create_table</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"--- Memasukkan 10 Data ke Quadratic Probing ---"</span><span class="p">)</span>
+
+<span class="n">daftar_angka</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">101</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">daftar_angka</span><span class="p">:</span>
+    <span class="n">insert</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"mid_square"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Isi tabel Awal (Penuh 10/10):"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+
+<span class="c1"># 2. Pembuktian saat Slot Penuh</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Mencoba data ke-11 (Harusnya EROR) ---"</span><span class="p">)</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"mid_square"</span><span class="p">)</span>
+
+<span class="c1"># 3. Update dan Delete</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Update dan Delete ---"</span><span class="p">)</span>
+<span class="n">update</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">999</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"mid_square"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Setelah update 21 jadi 999:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+
+<span class="n">delete</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="s2">"mid_square"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Setelah delete angka 11:"</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>--- Memasukkan 10 Data ke Quadratic Probing ---
+
+Isi tabel Awal (Penuh 10/10): [51, 101, 11, 61, 21, 71, 31, 81, 41, 91]
+
+--- Mencoba data ke-11 (Harusnya EROR) ---
+[EROR] Tabel sudah penuh! Angka 111 tidak bisa masuk.
+
+--- Update dan Delete ---
+Setelah update 21 jadi 999: [51, 101, 11, 61, 999, 71, 31, 81, 41, 91]
+Setelah delete angka 11: [51, 101, 'DELETED', 61, 999, 71, 31, 81, 41, 91]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=83be59d9-5635-446e-9214-8ba96759adbc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="3.-MidSquareMethod(Function-Hash)">3. MidSquareMethod(Function Hash)<a class="anchor-link" href="#3.-MidSquareMethod(Function-Hash)">¶</a></h1>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=818a45a1-2a76-4c59-a21f-b7785bb290a8">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mid_square_hash</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">size</span><span class="p">):</span>
+    <span class="n">square</span> <span class="o">=</span> <span class="n">key</span> <span class="o">*</span> <span class="n">key</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
+
+    <span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">middle</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">middle</span><span class="p">)</span> <span class="o">%</span> <span class="n">size</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=b18d92d4-1024-471d-877c-769dfb299909">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ===== MAIN =====</span>
+<span class="n">size</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">31</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Key </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> -&gt; index </span><span class="si">{</span><span class="n">mid_square_hash</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Key 12 -&gt; index 4
+Key 25 -&gt; index 2
+Key 44 -&gt; index 3
+Key 31 -&gt; index 6
+</pre>
 </div>
 </div>
 </div>
